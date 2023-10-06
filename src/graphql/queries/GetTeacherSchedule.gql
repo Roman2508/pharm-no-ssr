@@ -1,0 +1,10 @@
+query GetTeacherSchedule($teacherSlug: String = "stelmakh-im") {
+  workers(filters: { slug: { in: [$teacherSlug] } }) {
+    data {
+      attributes {
+        name
+        calendar_id
+      }
+    }
+  }
+}

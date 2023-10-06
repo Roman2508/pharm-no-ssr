@@ -1,0 +1,23 @@
+.spinner {
+  height: 50px;
+  width: 50px;
+  border: solid 6px var(--primary-color);
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  will-change: transform;
+  animation: spin 600ms infinite linear;
+
+  position: absolute;
+  top: 40%;
+  left: calc(50% - 25px);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,56 @@
+query GetHomePageLayoutData {
+  # SEO
+  seo {
+    data {
+      attributes {
+        SEO(pagination: { pageSize: 100 }) {
+          id
+          name
+          content
+        }
+      }
+    }
+  }
+
+  # Header
+  header {
+    data {
+      attributes {
+        Header {
+          ...GetNavigation
+          ...GetHeaderIcons
+          ...GetHeaderSocial
+        }
+      }
+    }
+  }
+
+  # Footer
+
+  footer {
+    data {
+      attributes {
+        logo {
+          ...mediaFileFragment
+        }
+        copyright
+        map_url
+        map_photo {
+          ...mediaFileFragment
+        }
+        title
+        address
+        main_phone
+        secondary_phone
+        email
+        social {
+          id
+          link
+          icon {
+            ...mediaFileFragment
+          }
+        }
+      }
+    }
+  }
+}

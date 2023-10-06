@@ -1,0 +1,43 @@
+query GetOneTeacher($teacherSlug: String) {
+  workers(
+    filters: { category: { in: ["teacher"] }, slug: { contains: $teacherSlug } }
+  ) {
+    data {
+      id
+      attributes {
+        name
+        photo {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        email
+        phone
+        lessons {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+        slug
+        cycle_commission {
+          data {
+            attributes {
+              name
+              slug
+            }
+          }
+        }
+        category
+        is_administration
+        position
+        additional_information
+        printed_works
+        calendar_id
+      }
+    }
+  }
+}

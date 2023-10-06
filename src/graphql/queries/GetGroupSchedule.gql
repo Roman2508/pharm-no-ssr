@@ -1,0 +1,21 @@
+query GetGroupSchedule($groupName: String) {
+  groups(filters: { name: { in: [$groupName] } }) {
+    data {
+      attributes {
+        name
+        calendar_id
+      }
+    }
+  }
+}
+
+query GetAllGroupSchedule {
+  groups(pagination: { pageSize: 1000 }) {
+    data {
+      attributes {
+        name
+        calendar_id
+      }
+    }
+  }
+}

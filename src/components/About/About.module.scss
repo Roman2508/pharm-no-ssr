@@ -1,0 +1,142 @@
+.about {
+  padding-bottom: 180px;
+  position: relative;
+}
+
+.about.about--page {
+  padding-bottom: 100px;
+}
+
+.about__wrapper {
+  display: flex;
+  align-items: flex-end;
+}
+
+.about__wrapper.vertical-center {
+  align-items: center;
+}
+
+.about__content {
+  max-width: 55%;
+  margin-right: 40px;
+}
+
+.about__image {
+  max-width: 45%;
+}
+
+.about__image img {
+  object-fit: cover;
+  width: 100%;
+  max-width: 720px;
+  border-radius: 20px;
+}
+
+.about__content h2 {
+  position: relative;
+  font-family: GilroyBold, sans-serif;
+  /* color: #002248; */
+  color: var(--primary-color);
+  font-size: 40px;
+  padding-bottom: 25px;
+  margin-bottom: 25px;
+}
+
+.about__content h2::after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  /* background-color: #002248; */
+  background-color: var(--primary-color);
+  bottom: 0;
+  left: 0;
+}
+
+.about__content p {
+  font-family: GilroyRegular, sans-serif;
+  font-size: 24px;
+}
+
+.about__content p + p {
+  margin-top: 15px;
+}
+
+.about__button {
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 20px;
+  color: var(--primary-color);
+  font-family: GilroyBold, sans-serif;
+  background-color: transparent;
+  border: 3px solid var(--primary-color);
+  border-radius: 10px;
+  padding: 12px 33px 15px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.about__button:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+@media (max-width: 1200px) {
+  .about {
+    padding-bottom: 100px;
+  }
+  .about__wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .about__content {
+    max-width: 100%;
+    text-align: justify;
+    margin-right: 0;
+  }
+
+  .about__content h2 {
+    text-align: center;
+  }
+  .about__content h2::after {
+    width: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .about__button {
+    display: block;
+    width: 250px;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .about__image {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    padding-bottom: 70px;
+  }
+  .about__image {
+    display: none;
+  }
+  .about__content {
+    text-align: left;
+  }
+  .about__content p {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 500px) {
+  .about__content {
+    text-align: justify;
+  }
+  .about__content p {
+    font-size: 18px;
+  }
+}

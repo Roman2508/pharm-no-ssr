@@ -1,0 +1,28 @@
+query GetFooter {
+  footer {
+    data {
+      attributes {
+        logo {
+          ...mediaFileFragment
+        }
+        copyright
+        map_url
+        map_photo {
+          ...mediaFileFragment
+        }
+        title
+        address
+        main_phone
+        secondary_phone
+        email
+        social {
+          id
+          link
+          icon {
+            ...mediaFileFragment
+          }
+        }
+      }
+    }
+  }
+}

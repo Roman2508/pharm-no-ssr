@@ -1,0 +1,10 @@
+query GetAllNewsDates {
+  novinas(pagination: { pageSize: 200000 }) {
+    data {
+      id
+      attributes {
+        date
+      }
+    }
+  }
+}

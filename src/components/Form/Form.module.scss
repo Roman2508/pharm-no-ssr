@@ -1,0 +1,48 @@
+.anon-desc {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.selectWrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.select {
+  appearance: none;
+  /* safari */
+  -webkit-appearance: none;
+  width: 100%;
+  border: 1px solid #acaec9;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 14px;
+  border: 1px solid #acaec9;
+  border-radius: 5px;
+}
+
+.select:hover {
+  border: 1px solid #000000;
+}
+
+.select:focus {
+  padding: 9px 13px;
+  border: 2px solid var(--primary-color) !important;
+  position: relative;
+}
+
+.selectLabel {
+  position: absolute;
+  top: -8px;
+  left: 9px;
+  z-index: 1;
+  padding: 0 5px;
+  font-size: 13px;
+  background-color: #ffffff;
+  color: var(--primary-color);
+}

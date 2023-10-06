@@ -1,0 +1,13 @@
+query GetSEO {
+  seo {
+    data {
+      attributes {
+        SEO(pagination: { pageSize: 100 }) {
+          id
+          name
+          content
+        }
+      }
+    }
+  }
+}

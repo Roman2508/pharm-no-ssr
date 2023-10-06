@@ -1,0 +1,123 @@
+query GetHomePageData {
+  homePageAbout {
+    data {
+      attributes {
+        title
+        body
+        buttonText
+        photo {
+          ...mediaFileFragment
+        }
+      }
+    }
+  }
+
+  homePageStat {
+    data {
+      attributes {
+        stats {
+          id
+          text
+          num
+        }
+      }
+    }
+  }
+
+  homePageGallery {
+    data {
+      attributes {
+        title
+        GalleryItems {
+          id
+          title
+          link
+          photo {
+            ...mediaFileFragment
+          }
+        }
+      }
+    }
+  }
+
+  homePageContact {
+    data {
+      attributes {
+        title
+        Contacts {
+          id
+          name
+          position
+          phone
+          email
+        }
+        frame_url
+      }
+    }
+  }
+}
+
+query GetHomePageAbout {
+  homePageAbout {
+    data {
+      attributes {
+        title
+        body
+        buttonText
+        photo {
+          ...mediaFileFragment
+        }
+      }
+    }
+  }
+}
+
+query GetHomePageStat {
+  homePageStat {
+    data {
+      attributes {
+        stats {
+          id
+          text
+          num
+        }
+      }
+    }
+  }
+}
+
+query GetHomePageGallery {
+  homePageGallery {
+    data {
+      attributes {
+        title
+        GalleryItems {
+          id
+          title
+          link
+          photo {
+            ...mediaFileFragment
+          }
+        }
+      }
+    }
+  }
+}
+
+query GetHomePageContacts {
+  homePageContact {
+    data {
+      attributes {
+        title
+        Contacts {
+          id
+          name
+          position
+          phone
+          email
+        }
+        frame_url
+      }
+    }
+  }
+}

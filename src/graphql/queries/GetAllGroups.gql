@@ -1,0 +1,20 @@
+query GetAllGroups {
+  groups(pagination: { pageSize: 200 }) {
+    data {
+      id
+      attributes {
+        name
+        vidilenya {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+        specialty
+        educationalDegree
+        course_number
+      }
+    }
+  }
+}

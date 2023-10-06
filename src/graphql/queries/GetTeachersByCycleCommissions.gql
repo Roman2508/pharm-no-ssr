@@ -1,0 +1,17 @@
+query GetAllCycleCommissionsTeachers {
+  cycleCommissions(pagination: { pageSize: 100 }) {
+    data {
+      attributes {
+        name
+        workers(filters: { category: { in: ["teacher"] } }, sort: "name:asc", pagination: { pageSize: 100 }) {
+          data {
+            attributes {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  }
+}

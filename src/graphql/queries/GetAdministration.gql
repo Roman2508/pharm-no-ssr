@@ -1,0 +1,40 @@
+query GetAdministration {
+  workers(
+    filters: { is_administration: { in: true } }
+    sort: ["weight:desc", "name:asc"]
+    pagination: { pageSize: 200 }
+  ) {
+    data {
+      id
+      attributes {
+        name
+        photo {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        email
+        phone
+        position
+        lessons {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+        slug
+        cycle_commission {
+          data {
+            attributes {
+              name
+              slug
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+.sub-header {
+  height: 390px;
+  width: 100%;
+  position: relative;
+  text-align: center;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.sub-header::before {
+  position: absolute;
+  z-index: 10;
+  content: '';
+  top: 0px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: var(--primary-color);
+  /* background: linear-gradient(0deg, rgba(0, 56, 140, 0.15) 25%, rgba(0, 56, 140, 0.4) 80%, rgba(0, 56, 140, 0.5) 100%); */
+  background: linear-gradient(0deg, rgba(0, 56, 140, 0.15) 0%, rgba(0, 56, 140, 0.5) 60%, rgba(0, 56, 140, 0.6) 100%);
+  z-index: 1;
+}
+
+.sub-header__inner {
+  padding-top: 170px;
+  display: flex;
+  align-items: center;
+}
+
+.sub-header__title {
+  font-family: 'GilroyBold', sans-serif;
+  position: relative;
+  text-align: left;
+  font-size: 40px;
+  color: #fff;
+  z-index: 2;
+  max-width: 65%;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.sub-header__logo-box {
+  margin: 0 35px;
+  position: relative;
+  z-index: 1;
+  max-width: 160px;
+}
+
+.sub-header__logo {
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.sub-header__logo:hover {
+  transform: scale(1.1);
+}
+
+/* video */
+
+.sub-header__video {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.sub-header__video video {
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  // aspect-ratio: 16 / 9;
+  // min-width: 100%;
+  width: 100%;
+  // background: transparent url('../../../public/assets/images/header/header-video-poster.jpg') 50% 50% / cover no-repeat;
+}
+
+@media (max-width: 1200px) {
+  .sub-header__title {
+    font-size: 34px;
+  }
+  .sub-header__logo-box {
+    max-width: 110px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sub-header__title {
+    font-size: 30px;
+  }
+  .sub-header__logo-box {
+    max-width: 110px;
+  }
+}
+
+@media (max-width: 980px) {
+  .sub-header__logo-box {
+    display: none;
+  }
+  .sub-header__title {
+    text-align: center;
+    margin: 30px auto 0;
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 840px) {
+  .sub-header__title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sub-header__title {
+    margin-top: 50px;
+    font-size: 26px;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 640px) {
+  .sub-header__title {
+    font-size: 24px;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 440px) {
+  .sub-header__title {
+    font-size: 22px;
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 375px) {
+  .sub-header__title {
+    font-size: 20px;
+    max-width: 100%;
+  }
+}

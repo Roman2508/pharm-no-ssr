@@ -1,0 +1,39 @@
+query GetFullNews($newsId: ID = "3") {
+  novinas(filters: { id: { in: [$newsId] } }) {
+    data {
+      attributes {
+        title
+        body
+        date
+        main_photo {
+          data {
+            attributes {
+              url
+              name
+              width
+              height
+            }
+          }
+        }
+        collage_photos(pagination: { pageSize: 30 }) {
+          data {
+            attributes {
+              url
+              name
+              width
+              height
+            }
+          }
+        }
+        video_url
+        news_tags {
+          data {
+            attributes {
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+.accordion-item {
+  font-family: GilroyRegular, sans-serif;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  border-radius: 5px;
+  position: relative;
+  font-size: 20px;
+}
+
+.accordion-item::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background-color: var(--primary-color);
+}
+
+.accordion-title {
+  font-family: GilroyBold, sans-serif;
+  color: var(--primary-color);
+  background-color: transparent;
+  font-size: 20px;
+  text-align: left;
+  cursor: pointer;
+  padding: 20px;
+  width: 100%;
+  border: 0;
+  position: relative;
+}
+
+.accordion-title::before,
+.accordion-title::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  right: 20px;
+  top: 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.accordion-title::after {
+  transform: rotate(-90deg);
+}
+
+.accordion-title.accordion-active::after {
+  transform: rotate(0deg);
+}
+
+.accordion-text {
+  padding: 10px 20px 20px;
+}
+
+.accordion-text li {
+  margin-left: 20px;
+  position: relative;
+  list-style: none;
+}
+
+.accordion-text li::before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary-color);
+}
+
+.accordion-text a {
+  display: inline-block;
+  color: var(--primary-color);
+}
+
+.accordion-text p + p {
+  margin-top: 5px;
+}
+
+.accordion-text a:hover {
+  text-decoration: underline;
+}
+
+.accordion-text li + li {
+  margin-top: 10px;
+}

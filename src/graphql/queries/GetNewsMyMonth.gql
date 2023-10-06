@@ -1,0 +1,52 @@
+query GetNewsByMonth($currentPage: Int = 1, $pageSize: Int = 6, $startDate: Date, $endDate: Date) {
+  novinas(
+    sort: "date:desc"
+    pagination: { page: $currentPage, pageSize: $pageSize }
+    filters: { date: { gte: $startDate, lte: $endDate } }
+  ) {
+    meta {
+      pagination {
+        total
+        page
+        pageSize
+        pageCount
+      }
+    }
+    data {
+      id
+      attributes {
+        title
+        body
+        date
+        main_photo {
+          data {
+            attributes {
+              url
+              width
+              height
+            }
+          }
+        }
+        collage_photos {
+          data {
+            id
+            attributes {
+              url
+              width
+              height
+            }
+          }
+        }
+        video_url
+        news_tags {
+          data {
+            id
+            attributes {
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+}

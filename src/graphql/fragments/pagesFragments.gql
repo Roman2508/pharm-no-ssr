@@ -1,0 +1,206 @@
+fragment GetAccordionComponent on ComponentPageBlocksAccordion {
+  id
+  title
+  body
+  default_open
+  component_type
+}
+
+fragment GetBodyComponent on ComponentPageBlocksBody {
+  id
+  body
+  component_type
+}
+
+fragment GetButtonImagesComponent on ComponentPageBlocksButtonImages {
+  id
+  component_type
+  Components {
+    id
+    link
+    image {
+      data {
+        attributes {
+          url
+          width
+          height
+        }
+      }
+    }
+  }
+}
+
+fragment GetButtonLinkComponent on ComponentPageBlocksButtonLink {
+  id
+  text
+  link
+  component_type
+}
+
+fragment GetEducationBooksComponent on ComponentPageBlocksEducationBooks {
+  id
+  description
+  component_type
+  main_photo {
+    data {
+      attributes {
+        url
+      }
+    }
+  }
+  authors {
+    ...GetAccordionComponent
+  }
+}
+
+fragment GetBlocksPanoramsComponent on ComponentPageBlocksPanorams {
+  id
+  title
+  component_type
+  panoramas(pagination: { pageSize: 30 }) {
+    data {
+      id
+      attributes {
+        title
+        link
+        poster {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+        weight
+      }
+    }
+  }
+  withBackground
+}
+
+fragment GetPartnersBlockComponent on ComponentPageBlocksPartnersBlock {
+  id
+  component_type
+  title
+  partners(sort: ["weight:desc", "name:asc"]) {
+    data {
+      id
+      attributes {
+        name
+        logo {
+          data {
+            attributes {
+              url
+              name
+              width
+              height
+            }
+          }
+        }
+        link
+        presentation_link
+        type
+        weight
+      }
+    }
+  }
+}
+
+fragment GetPhotosGalleryComponent on ComponentPageBlocksPhotosGallery {
+  id
+  title
+  component_type
+  images(pagination: { pageSize: 30 }) {
+    data {
+      id
+      attributes {
+        url
+        width
+        height
+      }
+    }
+  }
+}
+
+fragment GetTwoColumnWithImageComponent on ComponentPageBlocksTwoColumnWithImage {
+  id
+  body
+  component_type
+  image {
+    data {
+      attributes {
+        url
+        width
+        height
+      }
+    }
+  }
+  layout
+}
+
+fragment GetBlocksPersonComponent on ComponentPageBlocksPerson {
+  id
+  component_type
+  worker {
+    data {
+      attributes {
+        name
+        photo {
+          data {
+            attributes {
+              url
+              width
+              height
+            }
+          }
+        }
+        position
+        email
+        phone
+        slug
+        cycle_commission {
+          data {
+            attributes {
+              slug
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+fragment GetPageCardsComponent on ComponentPageBlocksPageCards {
+  id
+  component_type
+  cards {
+    id
+    name
+    photo {
+      data {
+        attributes {
+          url
+          width
+          height
+        }
+      }
+    }
+    link
+  }
+}
+
+fragment GetFullSizePersonComponent on ComponentPageBlocksFullSizePerson {
+  id
+  component_type
+  name
+  body
+  photo {
+    data {
+      attributes {
+        url
+        name
+        width
+        height
+      }
+    }
+  }
+}

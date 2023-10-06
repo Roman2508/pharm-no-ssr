@@ -1,0 +1,10 @@
+fragment mediaFileFragment on UploadFileEntityResponse {
+	data {
+  	attributes {
+      name
+      url
+      width
+      height
+    }
+	}
+}

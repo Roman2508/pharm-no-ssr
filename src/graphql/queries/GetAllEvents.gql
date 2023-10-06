@@ -1,0 +1,22 @@
+query GetAllEvents {
+  events(pagination: { pageSize: 100 }, sort: ["weight:desc", "date:desc"]) {
+    data {
+      id
+      attributes {
+        title
+        date
+        weight
+        image {
+          data {
+            attributes {
+              name
+              url
+              width
+              height
+            }
+          }
+        }
+      }
+    }
+  }
+}

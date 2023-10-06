@@ -1,0 +1,30 @@
+query GetAllVidilenyas {
+  vidilenyas(pagination: { pageSize: 100 }) {
+    data {
+      id
+      attributes {
+        name
+        slug
+        main_photo {
+          data {
+            attributes {
+              url
+              width
+              height
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query GetAllVidilenyaSlug {
+  vidilenyas(pagination: { pageSize: 100 }) {
+    data {
+      attributes {
+        slug
+      }
+    }
+  }
+}

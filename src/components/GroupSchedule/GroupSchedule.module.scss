@@ -1,0 +1,135 @@
+.wrapper {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.wrapper * {
+  font-family: 'GilroyRegular', sans-serif;
+}
+
+.section-name {
+  font-size: 24px;
+  font-family: 'GilroyBold', sans-serif;
+  background-color: #f9f9f9;
+  color: var(--primary-color);
+  text-align: center;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+
+.groups-wrapper {
+  margin-bottom: 20px;
+}
+
+.group-item {
+  position: relative;
+  display: inline-block;
+  color: var(--primary-color);
+  background-color: var(--gray-color);
+  font-family: GilroyBold, sans-serif;
+  transition: all 0.3s ease-in-out;
+  padding: 10px 20px;
+  margin: 10px;
+}
+.group-item:hover {
+  text-decoration: underline;
+  &::after {
+    opacity: 1;
+  }
+}
+
+.group-item::after {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  transition: all 0.3s ease-in-out;
+  border: 3px solid var(--primary-color);
+}
+
+.lg-title {
+  font-family: GilroyBold, sans-serif;
+  margin-bottom: 20px;
+  font-size: 40px;
+  color: #000;
+}
+.md-title {
+  font-family: GilroyBold, sans-serif;
+  margin-bottom: 20px;
+  font-size: 32px;
+  color: #000;
+}
+
+@media (max-width: 1024px) {
+  .lg-title {
+    font-size: 36px;
+  }
+  .md-title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 840px) {
+  .lg-title {
+    font-size: 32px;
+  }
+  .md-title {
+    font-size: 28px;
+  }
+
+  .section-name {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lg-title {
+    font-size: 28px;
+  }
+  .md-title {
+    font-size: 24px;
+  }
+
+  .section-name {
+    font-size: 20px;
+  }
+  .group-item {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .lg-title {
+    font-size: 26px;
+  }
+  .md-title {
+    font-size: 22px;
+  }
+
+  .section-name {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 425px) {
+  .lg-title {
+    font-size: 24px;
+  }
+  .md-title {
+    font-size: 20px;
+  }
+
+  .section-name {
+    font-size: 18px;
+  }
+
+  .group-item {
+    font-size: 16px;
+  }
+}

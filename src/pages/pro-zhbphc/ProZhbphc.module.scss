@@ -1,0 +1,62 @@
+/* about */
+.about-page {
+  margin-top: 60px;
+}
+
+.about-page__title {
+  margin-bottom: 40px;
+}
+
+.about-page__content {
+  font-size: 24px;
+}
+/* // about */
+
+/* college history */
+.college-history {
+  margin-top: 60px;
+}
+
+.college-history__main-title {
+  margin-bottom: 40px;
+}
+
+.college-history__directors,
+.college-history__archive-photos {
+  margin-bottom: 40px;
+}
+/* // college history */
+
+/* administration */
+.administration__title {
+  margin-bottom: 40px;
+}
+
+.administration__list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1150px) {
+  .administration__list {
+    justify-content: center;
+  }
+}
+
+/* // administration */
+
+/* contacts */
+.contacts__items {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media (max-width: 1250px) {
+  .contacts__items {
+    justify-content: center;
+  }
+}
+
+.form {
+  margin-top: 20px;
+}
+/* // contacts */

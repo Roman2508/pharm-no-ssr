@@ -1,0 +1,31 @@
+query GetAllCycleCommissions {
+  cycleCommissions(pagination: { pageSize: 100 }) {
+    data {
+      id
+      attributes {
+        name
+        slug
+        main_photo {
+          data {
+            attributes {
+              url
+              width
+              height
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query GetAllCycleCommissionsSlug {
+  cycleCommissions(pagination: { pageSize: 100 }) {
+    data {
+      id
+      attributes {
+        slug
+      }
+    }
+  }
+}

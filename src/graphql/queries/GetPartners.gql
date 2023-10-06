@@ -1,0 +1,24 @@
+query GetPartners {
+  partners(filters: { not: { type: { eq: "Other" } } }, sort: "weight:desc", pagination: { pageSize: 100 }) {
+    data {
+      id
+      attributes {
+        name
+        logo {
+          data {
+            attributes {
+              url
+              name
+              width
+              height
+            }
+          }
+        }
+        link
+        presentation_link
+        type
+        weight
+      }
+    }
+  }
+}

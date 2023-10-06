@@ -1,0 +1,15 @@
+query GetPanorams {
+  panoramas(sort: "weight:desc", pagination: { pageSize: 100 }) {
+    data {
+      id
+      attributes {
+        title
+        link
+        poster {
+          ...mediaFileFragment
+        }
+        weight
+      }
+    }
+  }
+}

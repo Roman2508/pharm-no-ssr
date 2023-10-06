@@ -1,0 +1,109 @@
+.administration__item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 10px;
+  flex: 0 0 calc(25% - 20px);
+  width: calc(25% - 20px);
+  font-family: GilroyRegular, sans-serif;
+  color: #353f4f;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+.administration__item:hover .administration__item-top img {
+  transform: scale(1.1);
+}
+
+.administration__item-top {
+  width: 100%;
+  position: relative;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.administration__item-position {
+  background-color: var(--primary-color);
+  width: 100%;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.administration__item-top img {
+  transition: all 0.3s ease-in-out;
+  object-fit: cover;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.administration__item-name {
+  font-family: GilroyBold, sans-serif;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.administration__item-tel {
+  display: inline-block;
+  margin-bottom: 3px;
+}
+
+.administration__item-tel,
+.administration__item-mail {
+  position: relative;
+}
+
+.administration__item-tel:hover::after,
+.administration__item-mail:hover::after {
+  width: 100%;
+}
+
+.administration__item-tel::after,
+.administration__item-mail::after {
+  transition: width 0.3s ease-in-out;
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #353f4f;
+  bottom: -1px;
+  left: 0;
+}
+
+@media (max-width: 1150px) {
+  .administration__item {
+    flex-basis: calc(33.333333333% - 20px);
+    width: calc(33.333333333% - 20px);
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .administration__item {
+    max-width: 250px;
+  }
+}
+@media (max-width: 940px) {
+  .administration__item {
+    flex-basis: calc(50% - 20px);
+    width: calc(50% - 20px);
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .administration__item {
+    flex-basis: calc(100% - 20px);
+    width: calc(100% - 20px);
+    max-width: 300px;
+  }
+}

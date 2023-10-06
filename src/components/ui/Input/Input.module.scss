@@ -1,0 +1,157 @@
+.wrapper {
+  position: relative;
+  display: inline-flex;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+.wrapper.errorWrapper {
+  margin-bottom: 40px;
+}
+
+/* label */
+
+.label {
+  top: 50%;
+  font-size: 18px;
+  position: absolute;
+  transform: translateY(-50%);
+  transition: all 0.2s ease-in-out;
+}
+
+.label.errorLabel {
+  color: #ca4240;
+}
+
+.outlinedLabel {
+  left: 9px;
+}
+.standartLabel {
+  left: 0;
+}
+
+.focusLabelLight {
+  top: 0;
+  z-index: 1;
+  padding: 0 5px;
+  font-size: 13px;
+  background-color: #ffffff;
+}
+
+.focusLabel {
+  color: var(--primary-color);
+  // color: #20bd5f;
+}
+
+.focusStandartLabel {
+  background-color: transparent;
+  left: -5px;
+}
+
+/* label */
+
+/* input */
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  outline: none;
+  font-size: 18px;
+  background-color: transparent;
+}
+
+.outlinedInput.darkModeInput:hover {
+  border: 1px solid #ffffff;
+}
+.outlinedInput.lightModeInput:hover {
+  border: 1px solid #000000;
+}
+
+.standartInput {
+  border: 0;
+  padding: 8px 0;
+  border-bottom: 1px solid #ffffff;
+
+  &:hover {
+    border-bottom: 1px solid #000000;
+  }
+}
+
+.darkModeInput {
+  color: #fff;
+
+  &:hover {
+    border-bottom: 1px solid #ffffff;
+  }
+}
+
+.inputWrapper::after {
+  content: '';
+  position: absolute;
+  transition: all 0.2s ease-in-out;
+  transform: scaleX(0);
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  // background-color: #20bd5f;
+  bottom: 0;
+  left: 0;
+}
+
+.inputWrapper.errorBottomLine::after {
+  background-color: #ca4240;
+}
+
+.inputWrapper.bottomLine.focusInput::after {
+  transform: scaleX(1);
+}
+
+.outlinedInput {
+  padding: 10px 14px;
+  border: 1px solid #acaec9;
+  border-radius: 5px;
+
+  &:hover {
+    border: 1px solid #000000;
+  }
+
+  &:focus {
+    padding: 9px 13px;
+    // border: 2px solid #087ea4 !important;
+    border: 2px solid var(--primary-color) !important;
+    position: relative;
+  }
+}
+
+.outlinedInput.lightModeInput:hover {
+  border: 1px solid #000000;
+}
+
+.standartInput.errorInput {
+  border-bottom: 1px solid #ca4240 !important;
+}
+
+.outlinedInput.errorInput {
+  border: 1px solid #ca4240 !important;
+}
+
+.outlinedInput.errorInput:focus {
+  border: 2px solid #ca4240 !important;
+}
+
+/* input */
+
+/* errorMessage */
+
+.errorMessage {
+  bottom: -20px;
+  font-size: 14px;
+  color: #ca4240;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* errorMessage */

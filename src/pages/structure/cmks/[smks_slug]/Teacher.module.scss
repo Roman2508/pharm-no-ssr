@@ -1,0 +1,134 @@
+.wrapper {
+  margin-top: 30px;
+}
+
+.tabs-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabs {
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  //   box-shadow: 0 0 1px 0 rgba(#185ee0, 0.15), 0 6px 12px 0 rgba(#185ee0, 0.15);
+  //   box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15),
+  //     0 6px 12px 0 rgba(24, 94, 224, 0.15);
+  margin-bottom: 30px;
+  //   border-radius: 99px;
+  border-bottom: 1px solid #d2d2d2;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  font-family: GilroyBold, sans-serif;
+  padding: 30px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.active-tab {
+  position: relative;
+  color: var(--primary-color);
+  background-color: var(--gray-color);
+}
+.active-tab::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--primary-color);
+}
+
+.content {
+  display: flex;
+}
+
+.lessons {
+  margin-bottom: 10px;
+}
+
+.img {
+  margin-right: 40px;
+  max-width: 200px;
+
+  a img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+  display: block;
+}
+
+@media (max-width: 840px) {
+  .tab {
+    height: 54px;
+    padding: 25px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tab {
+    height: 54px;
+    padding: 20px 15px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .tab {
+    height: 54px;
+    padding: 20px 15px;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .img {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 540px) {
+  .tab {
+    height: 54px;
+    padding: 20px 10px;
+    font-size: 16px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .general-information {
+    text-align: center;
+  }
+
+  .lessons {
+    list-style: none;
+  }
+
+  .img {
+    margin: 0 0 20px 0;
+  }
+}
+
+@media (max-width: 425px) {
+  .tab {
+    height: 54px;
+    padding: 20px 5px;
+    font-size: 14px;
+  }
+}

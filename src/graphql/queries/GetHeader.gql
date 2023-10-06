@@ -1,0 +1,13 @@
+query GetHeader {
+  header {
+    data {
+      attributes {
+        Header {
+          ...GetNavigation
+          ...GetHeaderIcons
+          ...GetHeaderSocial
+        }
+      }
+    }
+  }
+}

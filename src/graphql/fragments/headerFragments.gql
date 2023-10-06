@@ -1,0 +1,53 @@
+# Write your query or mutation here
+fragment GetNavigation on ComponentHeaderHeader {
+  navigation {
+    id
+    text
+    link
+    submenu {
+      id
+      text
+      link
+      submenu {
+        id
+        text
+        link
+      }
+    }
+  } 
+}
+
+fragment GetHeaderIcons on ComponentHeaderHeader {
+  headerIcons {
+    id
+    text
+    link
+    icon {
+      data {
+        attributes {
+          url
+          formats
+        }
+      }
+    }
+  }
+}
+
+fragment GetHeaderSocial on ComponentHeaderHeader {
+  social {
+    text
+    icons {
+      id
+      text
+      link
+      icon {
+        data {
+          attributes {
+            url
+            formats
+          }
+        }
+      }
+    }
+  }
+}

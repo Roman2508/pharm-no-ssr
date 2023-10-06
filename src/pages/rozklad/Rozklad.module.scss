@@ -1,0 +1,58 @@
+.teachers-box {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.teacher {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.schedule-box {
+  text-align: center;
+}
+
+.section-name {
+  font-size: 24px;
+  font-family: 'GilroyBold', sans-serif;
+  background-color: var(--gray-color);
+  color: var(--primary-color);
+  text-align: center;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+}
+
+.section-items {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-bottom: 30px;
+}
+
+.groups-wrapper {
+  margin-bottom: 20px;
+}
+
+.group-item {
+  display: inline-block;
+  padding: 10px 20px;
+  color: var(--primary-color);
+  // background-color: var(--gray-color);
+  // border: 3px solid var(--primary-color);
+  margin: 10px;
+  // width: 100px;
+  // text-align: center;
+  // font-family: GilroyBold, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+.group-item:hover {
+  text-decoration: underline;
+  // background-color: var(--primary-color);
+  // color: #fff;
+}
+
+@media (max-width: 640px) {
+  .schedule-box iframe {
+    width: 100%;
+  }
+}

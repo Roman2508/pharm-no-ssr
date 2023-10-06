@@ -1,0 +1,31 @@
+query GetAllSubdivision {
+  subdivisions(pagination: { pageSize: 100 }) {
+    data {
+      id
+      attributes {
+        name
+        slug
+        main_photo {
+          data {
+            attributes {
+              url
+              width
+              height
+            }
+          }
+        }
+        page_url
+      }
+    }
+  }
+}
+
+query GetAllSubdivisionSlug {
+  subdivisions(pagination: { pageSize: 100 }) {
+    data {
+      attributes {
+        slug
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+query GetHeaderSchedule {
+  groups(sort: "name:asc", pagination: { pageSize: 500 }) {
+    data {
+      attributes {
+        name
+      }
+    }
+  }
+
+  workers(filters: { category: { in: ["teacher"] } }, sort: "name:asc", pagination: { pageSize: 500 }) {
+    data {
+      attributes {
+        name
+        slug
+      }
+    }
+  }
+}

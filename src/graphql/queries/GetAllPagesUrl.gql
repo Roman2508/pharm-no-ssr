@@ -1,0 +1,9 @@
+query GetAllPagesUrl {
+  pages(pagination: { pageSize: 500 }) {
+    data {
+      attributes {
+        page_url
+      }
+    }
+  }
+}

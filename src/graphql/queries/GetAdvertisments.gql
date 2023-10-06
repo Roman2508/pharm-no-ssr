@@ -1,0 +1,11 @@
+query GetAdvertisements {
+  advertisements(pagination: { pageSize: 100 }) {
+    data {
+      id
+      attributes {
+        title
+        body
+      }
+    }
+  }
+}

@@ -1,0 +1,112 @@
+query GetCycleCommission($pageUrl: String) {
+  cycleCommissions(filters: { page_url: { in: [$pageUrl] } }) {
+    data {
+      id
+      attributes {
+        name
+        slug
+        main_photo {
+          data {
+            attributes {
+              url
+              width
+              height
+            }
+          }
+        }
+        SEO {
+          title
+          description
+          meta {
+            id
+            name
+            content
+          }
+        }
+        page_url
+        layout
+        headOfCommission {
+          data {
+            attributes {
+              name
+              slug
+              photo {
+                data {
+                  attributes {
+                    url
+                    width
+                    height
+                  }
+                }
+              }
+              position
+              phone
+              email
+            }
+          }
+        }
+        page_components {
+          ...GetAccordionComponent
+          ...GetBodyComponent
+          ...GetButtonImagesComponent
+          ...GetButtonLinkComponent
+          ...GetEducationBooksComponent
+          ...GetBlocksPanoramsComponent
+          ...GetPartnersBlockComponent
+          ...GetPhotosGalleryComponent
+          ...GetTwoColumnWithImageComponent
+          ...GetBlocksPersonComponent
+        }
+        right_sidebar {
+          ...GetAccordionComponent
+          ...GetBodyComponent
+          ...GetButtonImagesComponent
+          ...GetButtonLinkComponent
+          ...GetEducationBooksComponent
+          ...GetBlocksPanoramsComponent
+          ...GetPartnersBlockComponent
+          ...GetPhotosGalleryComponent
+          ...GetTwoColumnWithImageComponent
+          ...GetBlocksPersonComponent
+        }
+        left_sidebar {
+          ...GetAccordionComponent
+          ...GetBodyComponent
+          ...GetButtonImagesComponent
+          ...GetButtonLinkComponent
+          ...GetEducationBooksComponent
+          ...GetBlocksPanoramsComponent
+          ...GetPartnersBlockComponent
+          ...GetPhotosGalleryComponent
+          ...GetTwoColumnWithImageComponent
+          ...GetBlocksPersonComponent
+        }
+        workers(pagination: { pageSize: 100 }) {
+          data {
+            attributes {
+              name
+              slug
+              photo {
+                data {
+                  attributes {
+                    url
+                  }
+                }
+              }
+              lessons {
+                data {
+                  attributes {
+                    name
+                  }
+                }
+              }
+              email
+              phone
+              position
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+query GetSomeLastNews($newsCount: Int = 5) {
+  novinas(sort: "date:desc", pagination: { limit: $newsCount }) {
+    data {
+      id
+      attributes {
+        title
+        date
+      }
+    }
+  }
+}
