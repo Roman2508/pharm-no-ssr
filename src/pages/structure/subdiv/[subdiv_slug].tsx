@@ -1,107 +1,114 @@
-import React from 'react'
-import cn from 'classnames'
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import React from "react"
+import cn from "classnames"
+import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 
-import { Layout } from '@/layouts/Layout'
-import styles from '../Structure.module.scss'
-import PageContnet from '@/components/PageContent/PageContnet'
-import {
-  CycleCommissionEntity,
-  GetFooterQuery,
-  GetHeaderQuery,
-  GetHeaderScheduleQuery,
-  GetMainScreenQuery,
-  GetSeoQuery,
-  gql,
-} from '@/graphql/client'
-import LoadingSpinner from '@/components/LoadingSpinner/LoadingSpinner'
+import { Layout } from "@/layouts/Layout"
+import styles from "../Structure.module.scss"
+import PageContnet from "@/components/PageContent/PageContnet"
+import { GetSubdivQuery, SubdivisionEntity, gql } from "@/graphql/client"
+import LoadingSpinner from "@/components/LoadingSpinner/LoadingSpinner"
+import { useRouter } from "next/router"
 
-interface ISmksPageProps {
-  SEO: GetSeoQuery
-  headerData: GetHeaderQuery
-  footerData: GetFooterQuery
-  subdivData: CycleCommissionEntity
-  mainScreenData: GetMainScreenQuery
-  headerSchedule: GetHeaderScheduleQuery
-}
+const SmksPage: NextPage = () => {
+  const { query } = useRouter()
 
-const SmksPage: NextPage<ISmksPageProps> = ({
-  SEO,
-  headerData,
-  footerData,
-  subdivData,
-  mainScreenData,
-  headerSchedule,
-}) => {
-  if (!SEO || !headerData || !footerData || !subdivData || !mainScreenData || !headerSchedule) {
-    return <LoadingSpinner />
-  }
+  const [subdivData, setDubdivData] = React.useState<SubdivisionEntity>()
+
+  React.useEffect(() => {
+    if (!query) return
+
+    const fetchData = async () => {
+      try {
+        const subdivData = await gql.GetSubdiv({
+          subdivSlug: `${query.subdiv_slug}`,
+        })
+        // @ts-ignore
+        setDubdivData(subdivData.subdivisions.data[0])
+      } catch (err) {
+        console.log(err, "subdiv page error")
+        window.location.replace("/404")
+      }
+    }
+
+    fetchData()
+  }, [query])
 
   return (
-    <Layout
-      SEO={SEO}
-      headerData={headerData}
-      footerData={footerData}
-      mainScreenData={mainScreenData}
-      headerSchedule={headerSchedule}
-      title={subdivData?.attributes?.SEO?.title}
-    >
-      <h1 className={`${styles['main-title']} section-title`}>{subdivData.attributes.name}</h1>
+    <Layout title={subdivData ? subdivData.attributes.SEO.title : ""}>
+      {subdivData && (
+        <h1 className={`${styles["main-title"]} section-title`}>
+          {subdivData.attributes.name}
+        </h1>
+      )}
 
-      {/* {subdivData.attributes.main_photo.data && (
-        <div className="container">
-          <div className={'main-photo-page'}>
-            <img
-              src={`${process.env.API_URL}${subdivData.attributes.main_photo.data.attributes.url}`}
-              alt="main page photo"
+      {subdivData ? (
+        <div className={cn(styles["page-conent"])}>
+          {String(subdivData.attributes.layout) === "col_1_8_3" ? (
+            <div className={cn("page-row", "container")}>
+              <PageContnet
+                colSize="col-1-12"
+                pageComponents={subdivData.attributes.left_sidebar}
+              />
+              <PageContnet
+                colSize="col-8-12"
+                pageComponents={subdivData.attributes.page_components}
+                mainPhotoCol={subdivData.attributes.main_photo.data}
+              />
+              <PageContnet
+                colSize="col-3-12"
+                pageComponents={subdivData.attributes.right_sidebar}
+              />
+            </div>
+          ) : String(subdivData.attributes.layout) === "col_2_7_4" ? (
+            <div className={cn("page-row", "container")}>
+              <PageContnet
+                colSize="col-2-12"
+                pageComponents={subdivData.attributes.left_sidebar}
+              />
+              <PageContnet
+                colSize="col-7-12"
+                pageComponents={subdivData.attributes.page_components}
+                mainPhotoCol={subdivData.attributes.main_photo.data}
+              />
+              <PageContnet
+                colSize="col-4-12"
+                pageComponents={subdivData.attributes.right_sidebar}
+              />
+            </div>
+          ) : String(subdivData.attributes.layout) === "col_8_4" ? (
+            <div className={cn("page-row", "container")}>
+              <PageContnet
+                colSize="col-8-12"
+                pageComponents={subdivData.attributes.page_components}
+                mainPhotoCol={subdivData.attributes.main_photo.data}
+              />
+              <PageContnet
+                colSize="col-4-12"
+                pageComponents={subdivData.attributes.right_sidebar}
+              />
+            </div>
+          ) : String(subdivData.attributes.layout) === "col_9_3" ? (
+            <div className={cn("page-row", "container")}>
+              <PageContnet
+                colSize="col-9-12"
+                pageComponents={subdivData.attributes.page_components}
+                mainPhotoCol={subdivData.attributes.main_photo.data}
+              />
+              <PageContnet
+                colSize="col-3-12"
+                pageComponents={subdivData.attributes.right_sidebar}
+              />
+            </div>
+          ) : (
+            <PageContnet
+              colSize="col-12"
+              pageComponents={subdivData.attributes.page_components}
             />
-          </div>
+          )}
         </div>
-      )} */}
-
-      <div className={cn(styles['page-conent'])}>
-        {String(subdivData.attributes.layout) === 'col_1_8_3' ? (
-          <div className={cn('page-row', 'container')}>
-            <PageContnet colSize="col-1-12" pageComponents={subdivData.attributes.left_sidebar} />
-            <PageContnet
-              colSize="col-8-12"
-              pageComponents={subdivData.attributes.page_components}
-              mainPhotoCol={subdivData.attributes.main_photo.data}
-            />
-            <PageContnet colSize="col-3-12" pageComponents={subdivData.attributes.right_sidebar} />
-          </div>
-        ) : String(subdivData.attributes.layout) === 'col_2_7_4' ? (
-          <div className={cn('page-row', 'container')}>
-            <PageContnet colSize="col-2-12" pageComponents={subdivData.attributes.left_sidebar} />
-            <PageContnet
-              colSize="col-7-12"
-              pageComponents={subdivData.attributes.page_components}
-              mainPhotoCol={subdivData.attributes.main_photo.data}
-            />
-            <PageContnet colSize="col-4-12" pageComponents={subdivData.attributes.right_sidebar} />
-          </div>
-        ) : String(subdivData.attributes.layout) === 'col_8_4' ? (
-          <div className={cn('page-row', 'container')}>
-            <PageContnet
-              colSize="col-8-12"
-              pageComponents={subdivData.attributes.page_components}
-              mainPhotoCol={subdivData.attributes.main_photo.data}
-            />
-            <PageContnet colSize="col-4-12" pageComponents={subdivData.attributes.right_sidebar} />
-          </div>
-        ) : String(subdivData.attributes.layout) === 'col_9_3' ? (
-          <div className={cn('page-row', 'container')}>
-            <PageContnet
-              colSize="col-9-12"
-              pageComponents={subdivData.attributes.page_components}
-              mainPhotoCol={subdivData.attributes.main_photo.data}
-            />
-            <PageContnet colSize="col-3-12" pageComponents={subdivData.attributes.right_sidebar} />
-          </div>
-        ) : (
-          <PageContnet colSize="col-12" pageComponents={subdivData.attributes.page_components} />
-        )}
-      </div>
+      ) : (
+        <LoadingSpinner />
+      )}
     </Layout>
   )
 }
@@ -117,7 +124,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
       }
     }
 
-    const paths = cmks.subdivisions.data.map((el) => ({ params: { subdiv_slug: el.attributes.slug } }))
+    const paths = cmks.subdivisions.data.map((el) => ({
+      params: { subdiv_slug: el.attributes.slug },
+    }))
 
     return {
       paths,
@@ -135,15 +144,23 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
     const returnData = {
-      props: { SEO: {}, headerData: {}, mainScreenData: {}, subdivData: {}, headerSchedule: {} },
-      redirect: { destination: '/404', permanent: true },
+      props: {
+        SEO: {},
+        headerData: {},
+        mainScreenData: {},
+        subdivData: {},
+        headerSchedule: {},
+      },
+      redirect: { destination: "/404", permanent: true },
     }
 
     if (!params || !params.subdiv_slug) {
       return returnData
     }
 
-    const subdivData = await gql.GetSubdiv({ subdivSlug: `${params.subdiv_slug}` })
+    const subdivData = await gql.GetSubdiv({
+      subdivSlug: `${params.subdiv_slug}`,
+    })
 
     if (!subdivData || !subdivData.subdivisions.data[0]) {
       return returnData
@@ -177,10 +194,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
     }
   } catch (error) {
-    console.log(error, 'subdiv page error')
+    console.log(error, "subdiv page error")
     return {
-      props: { SEO: {}, headerData: {}, footerData: {}, mainScreenData: {}, subdivData: {}, headerSchedule: {} },
-      redirect: { destination: '/404', permanent: true },
+      props: {
+        SEO: {},
+        headerData: {},
+        footerData: {},
+        mainScreenData: {},
+        subdivData: {},
+        headerSchedule: {},
+      },
+      redirect: { destination: "/404", permanent: true },
     }
   }
 }
